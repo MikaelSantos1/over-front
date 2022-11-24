@@ -1,22 +1,22 @@
 import { Box, Button, CircularProgress, CircularProgressLabel, Flex, Grid, Icon, Stack, Text, VStack } from "@chakra-ui/react";
-import { Header } from "../components/Header";
-import { Button as ButtonComponent } from "../components/MainCourses/Button";
+import { Header } from "../../components/Header";
+import { Button as ButtonComponent } from "../../components/MainCourses/Button";
 const courseDetails = {
     thumbnail: 'https://i.redd.it/a9pl1pqkahh51.png'
 }
 import { BsFillPlayFill } from 'react-icons/bs'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
-import { ResumeCoursesCard } from "../components/ResumoCoursesCard";
+import { ResumeCoursesCard } from "../../components/ResumoCoursesCard";
 import { BiTimeFive } from 'react-icons/bi'
 import { FiLayers } from 'react-icons/fi'
 import { BsFolderFill } from 'react-icons/bs'
 import { TbCertificate } from 'react-icons/tb'
 import { AiOutlineStar, AiFillZhihuCircle } from 'react-icons/ai'
-import { LessonCard } from "../components/LessonCard";
-import { ComplementaryMaterial } from "../components/ComplementaryMaterial";
-import { Tags } from "../components/Tags";
-import { Card } from "../components/Card";
-import { CoursesCarousel } from "../components/CoursesCarousel";
+import { LessonCard } from "../../components/LessonCard";
+import { ComplementaryMaterial } from "../../components/ComplementaryMaterial";
+import { Tags } from "../../components/Tags";
+import { Card } from "../../components/Card";
+import { CoursesCarousel } from "../../components/CoursesCarousel";
 const courseData = [{
     title: 'Como escalar negócios com marketing de influência',
     about: 'Sendo um dos que está cada vez mais presente na lista de favoritos das pessoas, os ebooks tem se tornado uma forma rápida e prática de consumir conteúdo. Nessa staageclass Mieko Myashiro, ilustradora do Grupo Primo irá te ensinar a como criar seu primeiro ebook do zero mesmo que você não tenha nenhum conhecimento sobre design.',

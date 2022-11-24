@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Flex, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Logo from '../../../assets/icons8-duolingo-logo.svg'
+import Logo from '../../assets/icons8-duolingo-logo.svg'
 import { MenuMobile } from "./MenuMobile";
 import { Nav } from "./Nav";
 import { SearchBox } from "./SearchBox";

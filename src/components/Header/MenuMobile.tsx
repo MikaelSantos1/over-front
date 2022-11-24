@@ -12,7 +12,7 @@ import {
   } from '@chakra-ui/react'
   import { HamburgerIcon} from '@chakra-ui/icons'
 import React, { useEffect } from 'react'
-import {Header} from '.././Header'
+import {Header} from '.'
 interface MenuMobileProps{
     setIsActive:(boolean)=>void;
 }

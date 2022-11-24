@@ -1,9 +1,9 @@
 import { Box, Flex, HStack, VStack } from "@chakra-ui/react";
-import { CoursesCarousel } from "../components/CoursesCarousel";
-import { Header } from "../components/Header";
-import { MainCourseCarousel } from "../components/MainCourses";
+import { CoursesCarousel } from "../../components/CoursesCarousel";
+import { Header } from "../../components/Header";
+import { MainCourseCarousel } from "../../components/MainCourses";
 import { AiFillZhihuCircle,AiOutlineFieldTime} from 'react-icons/ai'
-import { CarouselRanking } from "../components/CarouselRanking";
+import { CarouselRanking } from "../../components/CarouselRanking";
 const data = [{
   title: 'Vencendo o medo de crescer no mercado digital',
   thumabnail: 'https://i.pinimg.com/originals/43/aa/60/43aa605fbc768e5907c1f5a9ab341b92.jpg',
