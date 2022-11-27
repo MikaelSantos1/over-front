@@ -4,28 +4,33 @@ import { CoursesCarousel } from "../CoursesCarousel";
 
 interface CardProps {
     icon?: IconType;
-    title: string;
+    title?: string;
     cardTitle: string;
     description: string;
-    iconCard?:IconType;
+    iconCard?: IconType;
 }
 
-export function Card({ icon, title, description, cardTitle ,iconCard}: CardProps) {
+export function Card({ icon, title, description, cardTitle, iconCard }: CardProps) {
     return (
-        <VStack>
+        <VStack bg='transparent' >
             <Flex w='100%' align='center' gridGap='10px'>
+                {
+                    icon && <Icon as={icon}
+                        w='20px'
+                        h='20px'
+                        color='white.900'
+                        fontWeight='bold'
+                    />
+                }
+                {
+                    title &&
+                    <Text
+                        fontWeight='bold'
+                        fontSize={['sm', 'md', 'lg', 'lg', '2xl']}
+                        color='white.900'
+                    >{title}</Text>
+                }
 
-                <Icon as={icon}
-                    w='20px'
-                    h='20px'
-                    color='white.900'
-                    fontWeight='bold'
-                />
-                <Text
-                    fontWeight='bold'
-                    fontSize={['sm', 'md', 'lg', 'lg','2xl']}
-                    color='white.900'
-                >{title}</Text>
             </Flex>
             <Flex
 
@@ -37,31 +42,31 @@ export function Card({ icon, title, description, cardTitle ,iconCard}: CardProps
                 as='a'
 
             >{
-                iconCard && <Icon as={iconCard}
-                w='80px'
-                h='60px'
-                color='white.900'
-                fontWeight='bold'
-            />
-            }
-                
-                <Flex flexDir='column'>
-                    <Text
-                    fontSize={['sm', 'md', 'lg', 'lg','2xl']}
+                    iconCard && <Icon as={iconCard}
+                        w='80px'
+                        h='60px'
+                        color='white.900'
                         fontWeight='bold'
-                     
+                    />
+                }
+
+                <Flex flexDir='column' >
+                    <Text
+                        fontSize={['sm', 'md', 'lg', 'lg', '2xl']}
+                        fontWeight='bold'
+
                         color='white.900'
                     >{cardTitle}</Text>
                     <Text
-                    fontSize={['xs','sm', 'md']}
-                    mt='2'
+                        fontSize={['xs', 'sm', 'md']}
+                        mt='2'
                         opacity='0.8'
-                     
+
                         color='white.900'
                     >{description}</Text>
                 </Flex>
             </Flex>
-           
+
         </VStack>
     )
 }

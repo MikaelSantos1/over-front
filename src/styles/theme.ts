@@ -22,6 +22,7 @@ export const theme= extendTheme({
         "500": "rgba(49,51,56,.5019607843137255)",
         "400": "rgba(32,34,39,.6)",
         "300": "#86888d",
+        "250": "#202227",
         "200": "#B3B5C6",
         "100": "#86888dz",
         "50": "#EEEEF2",
@@ -34,6 +35,7 @@ export const theme= extendTheme({
             '700':'rgb(130, 87, 230)'
         },
         black:{
+            "900":'#000',
             "600":'#202227'
         }
     },
@@ -47,7 +49,13 @@ export const theme= extendTheme({
             body:{
                 bg:'gray.900',
                 color:'black.600',
-                overflowX:'hidden'
+                overflowX:'hidden',
+                '.video-js':{
+                background:' content-box !important',
+                position: 'static !important',
+                height: 'auto !important'
+                },
+            
             },
             
               
