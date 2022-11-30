@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa'
 export function StarRating() {
     const [rating,setRating]= useState(0)
     const [hover,setHover]=useState(0)
-    console.log(hover)
+  
     return (
 
         <Box>

@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Icon, Text, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { CollapseLesson } from "../../components/CollapseLesson";
 import { Header } from "../../components/Header";
@@ -71,13 +71,15 @@ export default function Watch() {
     base: false,
     lg: true
 })
+console.log(isOpen)
   return (
+    
     <Box w='100%' h='100%'>
       <Header />
       <Box display='flex' pt='100px' gridGap='25px'>
 
         <Box
-          w={!isOpen ? '80%' : '100%'}
+          w={!isOpen && isWideVersion ? '80%' : '100%'}
           position='relative'
           transition='width .3s ease-out'
           maxH='665px'
@@ -124,9 +126,10 @@ export default function Watch() {
        
     
       </Box>
-      <Flex mt='14' gridGap='35px' flexWrap='wrap'>
-        <Box w='80%'  pl={['5', '10', '12']}>
+      <Flex mt='14' gridGap='35px'   flexWrap={isWideVersion?'nowrap':'wrap'}>
+        <Box w='100%'  pl={['5', '10', '12']}>
           <LessonTabs
+          data={data}
           lessonDescription='O caminho do empreendedorismo é repleto de desafios e a cada dia é normal que surjam muitas dúvidas e dificuldades para o empreendedor. Nessa staageclass Anderson Hernandes, irá te mostrar alguns pilares essenciais para que o seu negócio comece da forma correta e se desenvolva sempre da melhor forma, você verá desde, se vale a pena ser pessoa jurídica, qual o melhor tipo de empresa para você abrir, sua responsabilidades no negócio, formação de time até organização financeira.'
           />
         </Box>
@@ -136,7 +139,7 @@ export default function Watch() {
           p='4'
           align='center'
           justify='space-between'
-          w={!isWideVersion?'30%':'100%'}
+          w={isWideVersion?'35%':'100%'}
           bg='gray.400'>
           <Text
             fontWeight='bold'

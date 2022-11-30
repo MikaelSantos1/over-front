@@ -1,4 +1,4 @@
-import { Box, Button, Collapse, Flex, Text, useDisclosure, Icon, VStack, HStack, Divider } from "@chakra-ui/react"
+import { Box, Button, Collapse, Flex, Text, useDisclosure, Icon, VStack, HStack, Divider, useBreakpointValue } from "@chakra-ui/react"
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react"
@@ -20,18 +20,21 @@ interface LessonData {
     }]
 }
 interface CollpaseLessonProps {
-    isOpen: boolean;
-    onToggle: () => void;
+    isOpen?: boolean;
+    onToggle?: () => void;
     data: LessonData[]
 }
 
-export function CollapseLesson({ isOpen, onToggle, data }: CollpaseLessonProps) {
+export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonProps) {
     const router = useRouter()
-    console.log(router.asPath)
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true
+    })
     return (
         <>
             <Box
-                w='30%'
+                w={isWideVersion?'30%':'100%'}
                 display={isOpen ? 'none' : 'block'}
                 transition='all .3s ease-out'
                 transform={isOpen ? 'translateX(100%)' : 'translateX(0)'}
@@ -48,26 +51,30 @@ export function CollapseLesson({ isOpen, onToggle, data }: CollpaseLessonProps) 
                     flexDir='column'
 
                 >
-                    <Flex
-                        py='6'
-                        onClick={onToggle}
-                        align='center'
-                    >
-                        <Icon
-                            as={MdArrowForwardIos}
-                            color='white.900'
-                            w='20px'
-                            h='20px' />
+                    {
+                       !isWideVersion && 
+                       <Flex
+                       py='6'
+                       onClick={onToggle}
+                       align='center'
+                   >
+                       <Icon
+                           as={MdArrowForwardIos}
+                           color='white.900'
+                           w='20px'
+                           h='20px' />
 
-                        <Text
-                            fontSize='lg'
-                            fontWeight='semibold'
-                            color='white.200'>
-                            Ocultar aulas
+                       <Text
+                           fontSize='lg'
+                           fontWeight='semibold'
+                           color='white.200'>
+                           Ocultar aulas
 
-                        </Text>
+                       </Text>
 
-                    </Flex>
+                   </Flex>
+                    }
+                   
                     <Text color='white.900' fontWeight='bold' fontSize='xl'>Vencendendo medo taltaltall</Text>
                     <Flex align='center' gridGap='6px' py='4'>
                         <Text color='white.900' fontWeight='bold' fontSize='lg' >
