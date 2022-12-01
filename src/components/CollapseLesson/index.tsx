@@ -1,4 +1,4 @@
-import { Box, Button, Collapse, Flex, Text, useDisclosure, Icon, VStack, HStack, Divider, useBreakpointValue } from "@chakra-ui/react"
+import { Box, Button, Collapse, Flex, Text, useDisclosure, Icon, VStack, HStack, Divider, useBreakpointValue, CircularProgress, CircularProgressLabel } from "@chakra-ui/react"
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react"
@@ -34,12 +34,10 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
     return (
         <>
             <Box
-                w={isWideVersion?'30%':'100%'}
-                display={isOpen ? 'none' : 'block'}
-                transition='all .3s ease-out'
-                transform={isOpen ? 'translateX(100%)' : 'translateX(0)'}
+                w={isWideVersion?'109%':'100%'}
+            
                 color='white'
-
+            
 
                 rounded='md'
                 shadow='md'
@@ -49,10 +47,10 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
                     bg='gray.250'
                     px='40px'
                     flexDir='column'
-
+                    py='4'
                 >
                     {
-                       !isWideVersion && 
+                       isWideVersion && 
                        <Flex
                        py='6'
                        onClick={onToggle}
@@ -76,7 +74,8 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
                     }
                    
                     <Text color='white.900' fontWeight='bold' fontSize='xl'>Vencendendo medo taltaltall</Text>
-                    <Flex align='center' gridGap='6px' py='4'>
+                    <Flex  py='4' justify='space-between'>
+                        <Flex align='center' gridGap='6px' >
                         <Text color='white.900' fontWeight='bold' fontSize='lg' >
                             0 de
                         </Text>
@@ -84,9 +83,14 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
                             {data.map((item) => item.completedLessons)} aulas concluidas
 
                         </Text>
+                        </Flex>
+                        <CircularProgress value={40} color='purple.700' trackColor="gray.500" size={['40px', '60px']}>
+                        <CircularProgressLabel color='white.900' fontWeight='bold' >40%</CircularProgressLabel>
+                    </CircularProgress>
                     </Flex>
+                  
                 </Flex>
-                <VStack spacing='1px' maxH='300px' overflowY='scroll'
+                <VStack spacing='1px' maxH='350px' overflowY='scroll'
                     sx={{
                         '::-webkit-scrollbar-track': {
                             backgroundColor: 'black.900',
@@ -114,7 +118,7 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
                                         borderLeftColor={router.asPath === `/watch/${lesson.id}` ? 'purple.700' : ''}
                                         key={lesson.id}
                                         px='40px'
-                                        minH='96px'
+                                        minH='115px'
                                         bg={router.asPath === `/watch/${lesson.id}` ? 'gray.400' : 'black.900'}
                                         w='100%'
                                         align='center' justify='space-between'

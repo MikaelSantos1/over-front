@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Icon, Text, useBreakpointValue, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Text, useBreakpointValue, useDisclosure, VStack } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { CollapseLesson } from "../../components/CollapseLesson";
@@ -70,86 +70,99 @@ export default function Watch() {
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true
-})
-console.log(isOpen)
+  })
+  console.log(isOpen)
   return (
-    
+
     <Box w='100%' h='100%'>
       <Header />
-      <Box display='flex' pt='100px' gridGap='25px'>
+      <Flex flexWrap={!isWideVersion?'wrap' :'nowrap'}pt='100px' gridGap='25px'>
 
         <Box
-          w={!isOpen && isWideVersion ? '80%' : '100%'}
-          position='relative'
+          w={!isOpen && isWideVersion ? '70%' : '100%'}
+          h='100%'
           transition='width .3s ease-out'
-          maxH='665px'
-          bg='black.900'
-
         >
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
+          <Box
+
+            position='relative'
+            transition='width .3s ease-out'
+            maxH='665px'
+            bg='black.900'
+          >
+            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
+
+            {
+              isOpen &&
+              <Box
+                px='10'
+                position='absolute'
+                top='50'
+                left='0'
+                right='0'
 
 
-          {
-            isOpen &&
-            <Box
-              px='10'
-              position='absolute'
-              top='50'
-              left='0'
-              right='0'
+                w='100%'
+              >
 
-
-              w='100%'
-            >
-
-              <Flex w='100%' justifyContent='space-between' align='center'>
-                seta
-                <Flex onClick={onToggle} justify='center' align='center'>
-                  <Text color='white.200'>
-                    Aulas
-                  </Text>
-                  <Icon as={MdArrowBackIosNew} color='white.900' w='20px' h='20px' />
+                <Flex w='100%' justifyContent='space-between' align='center'>
+                  seta
+                  <Flex onClick={onToggle} justify='center' align='center'>
+                    <Text color='white.200'>
+                      Aulas
+                    </Text>
+                    <Icon as={MdArrowBackIosNew} color='white.900' w='20px' h='20px' />
+                  </Flex>
                 </Flex>
-              </Flex>
-            </Box>
-          }
+              </Box>
+            }
+          </Box>
+          <Box w='100%' pl={['5', '10', '12']} mt='14'>
+            <LessonTabs
+              data={data}
+              lessonDescription='O caminho do empreendedorismo é repleto de desafios e a cada dia é normal que surjam muitas dúvidas e dificuldades para o empreendedor. Nessa staageclass Anderson Hernandes, irá te mostrar alguns pilares essenciais para que o seu negócio comece da forma correta e se desenvolva sempre da melhor forma, você verá desde, se vale a pena ser pessoa jurídica, qual o melhor tipo de empresa para você abrir, sua responsabilidades no negócio, formação de time até organização financeira.'
+            />
+          </Box>
+
 
 
         </Box>
+        <Box w='30%' h='100%'
+          display={isOpen ? 'none' : 'block'}
+          transition='all .3s ease-out'
+          transform={isOpen ? 'translateX(100%)' : 'translateX(0)'}
+        >
+
           {
-         isWideVersion &&
-         <CollapseLesson
-         data={data}
-         isOpen={isOpen} onToggle={onToggle} />
-     
+            isWideVersion &&
+            <CollapseLesson
+              data={data}
+              isOpen={isOpen} onToggle={onToggle} />
+
           }
-       
-    
-      </Box>
-      <Flex mt='14' gridGap='35px'   flexWrap={isWideVersion?'nowrap':'wrap'}>
-        <Box w='100%'  pl={['5', '10', '12']}>
-          <LessonTabs
-          data={data}
-          lessonDescription='O caminho do empreendedorismo é repleto de desafios e a cada dia é normal que surjam muitas dúvidas e dificuldades para o empreendedor. Nessa staageclass Anderson Hernandes, irá te mostrar alguns pilares essenciais para que o seu negócio comece da forma correta e se desenvolva sempre da melhor forma, você verá desde, se vale a pena ser pessoa jurídica, qual o melhor tipo de empresa para você abrir, sua responsabilidades no negócio, formação de time até organização financeira.'
-          />
+          <Flex mt='14' gridGap='35px' flexWrap={isWideVersion ? 'nowrap' : 'wrap'}>
+
+            <Flex
+
+              maxH='106px'
+              p='4'
+              align='center'
+              justify='space-between'
+              w='100%'
+              bg='gray.400'>
+              <Text
+                fontWeight='bold'
+                color='white.900'
+                fontSize={['lg', 'lg', 'xl', '2xl']}>
+                Avalie essa aula!
+              </Text>
+              <StarRating />
+            </Flex>
+          </Flex>
         </Box>
-        <Flex
-        
-          maxH='86px'
-          p='4'
-          align='center'
-          justify='space-between'
-          w={isWideVersion?'35%':'100%'}
-          bg='gray.400'>
-          <Text
-            fontWeight='bold'
-            color='white.900'
-            fontSize={['lg','lg','xl','2xl']}>
-            Avalie essa aula!
-          </Text>
-          <StarRating />
-        </Flex>
       </Flex>
+
+
     </Box>
   )
 }

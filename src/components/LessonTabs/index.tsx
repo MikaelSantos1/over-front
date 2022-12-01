@@ -51,11 +51,17 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
             </TabList>
 
             <TabPanels>
-            <TabPanel>
-            <CollapseLesson
-         data={data}
-         />
-                </TabPanel>
+           
+                {
+                    !isWideVersion && 
+                    <TabPanel>
+                    <CollapseLesson
+                    data={data}
+                    />
+                     </TabPanel>
+                }
+        
+               
 
                 <TabPanel >
                     <Text
