@@ -172,7 +172,7 @@ export function CarouselRanking({ carouselTitle, icon}: CoursesCarouselProps) {
                               
                                 
                             >
-                                <Image src={item.thumabnail} fill alt='' objectFit='cover' />
+                                <Image src={item.thumabnail}  alt='' objectFit='cover' width={570} height={400} />
                                
                             </Flex>
                             <VStack align='flex-start'   zIndex={20} position='relative' top='-100px'  >

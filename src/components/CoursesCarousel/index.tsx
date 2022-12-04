@@ -24,10 +24,12 @@ interface CoursesCarouselProps {
         description: string
         progress?:number|string
     }[]
+    bg?:string;
+    p?:string
 }
 
 
-export function CoursesCarousel({ carouselTitle, icon, carouselDescription, data }: CoursesCarouselProps) {
+export function CoursesCarousel({ carouselTitle, icon, carouselDescription,bg,  p ,data }: CoursesCarouselProps) {
     const isWideVersion = useBreakpointValue({
         base: false,
         lg: true
@@ -170,8 +172,6 @@ export function CoursesCarousel({ carouselTitle, icon, carouselDescription, data
                 slidesPerView={1}
                 breakpoints={{
                     300: {
-
-
                         slidesPerView: 1.1,
                         spaceBetween: 10,
 
@@ -236,7 +236,7 @@ export function CoursesCarousel({ carouselTitle, icon, carouselDescription, data
                                 />
                             }
                           
-                            <VStack align='flex-start'>
+                            <VStack align='flex-start' bg={bg} p={p}>
                                 <Text
                                     fontWeight='bold'
                                     fontSize='xl'

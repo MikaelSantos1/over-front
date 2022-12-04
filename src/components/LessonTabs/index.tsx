@@ -12,15 +12,15 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
         lg: true
     })
     return (
-        <Tabs zIndex='10' >
-            <TabList>
+        <Tabs zIndex='10' p='0' colorScheme='purple'>
+            <TabList p='0' justifyContent='space-around'>
 
                 {
                     !isWideVersion &&
-                    <Tab>
+                    <Tab >
                         <Flex alignItems='center' justifyContent='center' gridGap='5px' maxW='1100px' zIndex='10' >
-                            <Icon as={MdPlayLesson} color='purple.700' fontSize='xl' />
-                            <Text color='white.900' fontWeight='bold' fontSize='xl'>
+                            <Icon as={MdPlayLesson} color='purple.700'  fontSize={['sm', 'md', 'lg']} />
+                            <Text color='white.900' fontWeight='bold'  fontSize={['sm', 'md', 'lg']}>
                                 Aulas
                             </Text>
                         </Flex>
@@ -29,8 +29,8 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
 
                 <Tab>
                     <Flex alignItems='center' justifyContent='center' gridGap='5px' maxW='1100px' zIndex='10' >
-                        <Icon as={MdPlayLesson} color='purple.700' fontSize='xl' />
-                        <Text color='white.900' fontWeight='bold' fontSize='xl'>
+                        <Icon as={MdPlayLesson} color='purple.700'  fontSize={['sm', 'md', 'lg']} />
+                        <Text color='white.900' fontWeight='bold'  fontSize={['sm', 'md', 'lg']}>
                             Descrição da aula
                         </Text>
                     </Flex>
@@ -41,8 +41,8 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
                         justifyContent='center'
                         gridGap='5px'
                         zIndex='10' >
-                        <Icon as={MdPlayLesson} color='purple.700' fontSize='xl' />
-                        <Text color='white.900' fontWeight='bold' fontSize='xl'>
+                        <Icon as={MdPlayLesson} color='purple.700'  fontSize={['sm', 'md', 'lg']} />
+                        <Text color='white.900' fontWeight='bold' fontSize={['sm', 'md', 'lg']}>
                             Material complementar
                         </Text>
                     </Flex>
@@ -50,11 +50,11 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
 
             </TabList>
 
-            <TabPanels>
+            <TabPanels p={0}>
            
                 {
                     !isWideVersion && 
-                    <TabPanel>
+                    <TabPanel p={0}>
                     <CollapseLesson
                     data={data}
                     />
@@ -63,7 +63,7 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
         
                
 
-                <TabPanel >
+                <TabPanel p={0} >
                     <Text
                         pt='5'
                         color='white.200'
@@ -74,7 +74,7 @@ export function LessonTabs({ lessonDescription,data }: LessonTabsProps) {
                         {lessonDescription}
                     </Text>
                 </TabPanel>
-                <TabPanel>
+                <TabPanel p={0}>
                     <ComplementaryMaterial
                         title="aa"
                         url="ads"

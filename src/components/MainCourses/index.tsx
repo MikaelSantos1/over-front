@@ -31,7 +31,7 @@ export function MainCourseCarousel() {
     return (
         <Box  
        overflow='hidden'
-        bg='white ' height='50em' sx={{
+        bg='white ' height={['30rem','40rem','50em']} sx={{
             '.swiper': {
                 width: '100%',
                 height: '100%',

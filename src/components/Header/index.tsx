@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, ListItem, Portal, Text, UnorderedList, useBreakpointValue } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Logo from '../../assets/icons8-duolingo-logo.svg'
@@ -18,8 +18,14 @@ export function Header() {
         }
         window.addEventListener('scroll', handleScroll)
     }, [])
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true
+    })
     return (
+        <>
         <Flex
+
             as='header'
             w='100%'
             bg={isActive ? 'gray.900' : 'transparent'}
@@ -27,10 +33,12 @@ export function Header() {
             position='fixed'
             left='0'
             right='0'
-            zIndex='30'
+            zIndex='9999999999999999'
             transition='background-color .5s,top .3s linear'
         >
+           
             <Flex
+                  
                 justify='space-between'
                 width='100%'
                 p='0 1rem'
@@ -44,28 +52,38 @@ export function Header() {
                     <Text fontSize='2xl'>
                         Overstack
                     </Text>
-                    <Nav/>
+                    {
+                        isWideVersion &&  <Nav/>
+                    }
+                    
                 </Flex>
                 <Flex
                     justify='flex-end'
                     align='center'
                     w='100%'
                     gridGap='10'
+                   
                 >
                     <SearchBox  />
                     <SidebarMenu 
                     name="Mikael"
                     email="mikaelsantos120@outlook.com"
                     />
-
-                    {/* <MenuMobile
-                        setIsActive={setIsActive}
-                    /> */}
+    {
+        !isWideVersion && 
+        <MenuMobile
+        setIsActive={setIsActive}
+    />
+    }
+                    
                 </Flex>
 
             </Flex>
-
+           
 
         </Flex>
+    
+       
+        </>
     )
 }

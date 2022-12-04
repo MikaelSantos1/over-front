@@ -25,7 +25,7 @@ interface CollpaseLessonProps {
     data: LessonData[]
 }
 
-export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonProps) {
+export function CollapseLesson({ isOpen = false, onToggle, data }: CollpaseLessonProps) {
     const router = useRouter()
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -34,10 +34,10 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
     return (
         <>
             <Box
-                w={isWideVersion?'109%':'100%'}
-            
+                w={isWideVersion ? '109%' : '100%'}
+
                 color='white'
-            
+
 
                 rounded='md'
                 shadow='md'
@@ -50,45 +50,45 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
                     py='4'
                 >
                     {
-                       isWideVersion && 
-                       <Flex
-                       py='6'
-                       onClick={onToggle}
-                       align='center'
-                   >
-                       <Icon
-                           as={MdArrowForwardIos}
-                           color='white.900'
-                           w='20px'
-                           h='20px' />
+                        isWideVersion &&
+                        <Flex
+                            py='6'
+                            onClick={onToggle}
+                            align='center'
+                        >
+                            <Icon
+                                as={MdArrowForwardIos}
+                                color='white.900'
+                                w='20px'
+                                h='20px' />
 
-                       <Text
-                           fontSize='lg'
-                           fontWeight='semibold'
-                           color='white.200'>
-                           Ocultar aulas
+                            <Text
+                                fontSize='lg'
+                                fontWeight='semibold'
+                                color='white.200'>
+                                Ocultar aulas
 
-                       </Text>
+                            </Text>
 
-                   </Flex>
+                        </Flex>
                     }
-                   
-                    <Text color='white.900' fontWeight='bold' fontSize='xl'>Vencendendo medo taltaltall</Text>
-                    <Flex  py='4' justify='space-between'>
-                        <Flex align='center' gridGap='6px' >
-                        <Text color='white.900' fontWeight='bold' fontSize='lg' >
-                            0 de
-                        </Text>
-                        <Text color='white.200' fontWeight='light' fontSize='md'>
-                            {data.map((item) => item.completedLessons)} aulas concluidas
 
-                        </Text>
+                    <Text color='white.900' fontWeight='bold' fontSize='xl'>Vencendendo medo taltaltall</Text>
+                    <Flex py='4' justify='space-between'>
+                        <Flex align='center' gridGap='6px' >
+                            <Text color='white.900' fontWeight='bold' fontSize='lg' >
+                                0 de
+                            </Text>
+                            <Text color='white.200' fontWeight='light' fontSize='md'>
+                                {data.map((item) => item.completedLessons)} aulas concluidas
+
+                            </Text>
                         </Flex>
                         <CircularProgress value={40} color='purple.700' trackColor="gray.500" size={['40px', '60px']}>
-                        <CircularProgressLabel color='white.900' fontWeight='bold' >40%</CircularProgressLabel>
-                    </CircularProgress>
+                            <CircularProgressLabel color='white.900' fontWeight='bold' >40%</CircularProgressLabel>
+                        </CircularProgress>
                     </Flex>
-                  
+
                 </Flex>
                 <VStack spacing='1px' maxH='350px' overflowY='scroll'
                     sx={{
@@ -112,6 +112,7 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
                         data.map((item) =>
                             item.lessons.map((lesson) => (
                                 <Link href={`${lesson.id}`} style={{ width: '100%' }}>
+                                    <a style={{width:'100%'}}>
                                     <Flex
                                         cursor='pointer'
                                         borderLeftWidth={router.asPath === `/watch/${lesson.id}` ? '2px' : '0'}
@@ -157,7 +158,10 @@ export function CollapseLesson({ isOpen=false, onToggle, data }: CollpaseLessonP
 
                                     </Flex>
                                     <Divider />
+                                    </a>
+                                   
                                 </Link>
+                                
                             ))
                         )
                     }
