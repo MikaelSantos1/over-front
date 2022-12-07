@@ -33,7 +33,7 @@ export function Header() {
             position='fixed'
             left='0'
             right='0'
-            zIndex='9999999999999999'
+            zIndex='100'
             transition='background-color .5s,top .3s linear'
         >
            

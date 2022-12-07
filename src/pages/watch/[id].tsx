@@ -77,7 +77,7 @@ export default function Watch() {
 
     <Box w='100%' h='100%'>
       <Header />
-      <Flex flexWrap={!isWideVersion?'wrap' :'nowrap'}pt='100px' gridGap='25px'>
+      <Flex flexWrap={!isWideVersion?'wrap' :'nowrap'}pt='100px' gridGap='25px' mb='220px'>
 
         <Box
           w={!isOpen && isWideVersion ? '70%' : '100%'}

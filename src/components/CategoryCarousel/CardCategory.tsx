@@ -17,7 +17,7 @@ export function CardCategory({  cardTitle, iconCard }: CardProps) {
 
             </Flex>
             <Flex
-                px='12'
+                px='80px'
                 bg='gray.400'
                 py='12px'
                

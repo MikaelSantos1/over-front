@@ -31,7 +31,7 @@ export function LessonCard({ lessonDescription, lessonTitle, thumbnail, duration
         flexWrap='wrap'
       >
 
-        <Image src={thumbnail} alt='' fill />
+        <Image src={thumbnail} alt='' layout="fill" />
         <Progress
           bg='gray.200'
           size='xs'

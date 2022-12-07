@@ -17,6 +17,7 @@ import { ComplementaryMaterial } from "../../components/ComplementaryMaterial";
 import { Tags } from "../../components/Tags";
 import { Card } from "../../components/Card";
 import { CoursesCarousel } from "../../components/CoursesCarousel";
+import { Footer } from "../../components/Footer";
 const courseData = [{
     title: 'Como escalar negócios com marketing de influência',
     about: 'Sendo um dos que está cada vez mais presente na lista de favoritos das pessoas, os ebooks tem se tornado uma forma rápida e prática de consumir conteúdo. Nessa staageclass Mieko Myashiro, ilustradora do Grupo Primo irá te ensinar a como criar seu primeiro ebook do zero mesmo que você não tenha nenhum conhecimento sobre design.',
@@ -357,6 +358,7 @@ export default function Details() {
                     ))
                 ))
             }
+            <Footer/>
         </Flex>
     )
 }

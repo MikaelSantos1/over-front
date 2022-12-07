@@ -30,7 +30,7 @@ export function SearchBox() {
                 left='-50px'
                 right='0'
 
-                zIndex={9999999999999} w='100%' >
+                zIndex={9999999999999}  >
 
                 <Flex w={isWideVersion?'':'100%'}
  >
@@ -51,7 +51,7 @@ export function SearchBox() {
                             type='text'
                             ref={input1}
                             bgColor='white.900'
-                            
+                            maxW={isWideVersion?'300px':'100%'}
 
                         />
 

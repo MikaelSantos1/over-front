@@ -34,14 +34,11 @@ export function CollapseLesson({ isOpen = false, onToggle, data }: CollpaseLesso
     return (
         <>
             <Box
-                w={isWideVersion ? '109%' : '100%'}
-
+                w={isWideVersion ? '100%' : '100%'}
                 color='white'
-
-
                 rounded='md'
                 shadow='md'
-
+               
             >
                 <Flex
                     bg='gray.250'
@@ -90,7 +87,8 @@ export function CollapseLesson({ isOpen = false, onToggle, data }: CollpaseLesso
                     </Flex>
 
                 </Flex>
-                <VStack spacing='1px' maxH='350px' overflowY='scroll'
+                <VStack 
+                spacing='1px' maxH='350px' overflowY='scroll'
                     sx={{
                         '::-webkit-scrollbar-track': {
                             backgroundColor: 'black.900',
@@ -112,56 +110,56 @@ export function CollapseLesson({ isOpen = false, onToggle, data }: CollpaseLesso
                         data.map((item) =>
                             item.lessons.map((lesson) => (
                                 <Link href={`${lesson.id}`} style={{ width: '100%' }}>
-                                    <a style={{width:'100%'}}>
-                                    <Flex
-                                        cursor='pointer'
-                                        borderLeftWidth={router.asPath === `/watch/${lesson.id}` ? '2px' : '0'}
-                                        borderLeftColor={router.asPath === `/watch/${lesson.id}` ? 'purple.700' : ''}
-                                        key={lesson.id}
-                                        px='40px'
-                                        minH='115px'
-                                        bg={router.asPath === `/watch/${lesson.id}` ? 'gray.400' : 'black.900'}
-                                        w='100%'
-                                        align='center' justify='space-between'
-                                        _hover={{
-                                            background: 'gray.400'
-                                        }}
-                                    >
+                                    <a style={{ width: '100%' }}>
+                                        <Flex
+                                            cursor='pointer'
+                                            borderLeftWidth={router.asPath === `/watch/${lesson.id}` ? '2px' : '0'}
+                                            borderLeftColor={router.asPath === `/watch/${lesson.id}` ? 'purple.700' : ''}
+                                            key={lesson.id}
+                                            px='40px'
+                                            minH='115px'
+                                            bg={router.asPath === `/watch/${lesson.id}` ? 'gray.400' : 'black.900'}
+                                            w='100%'
+                                            align='center' justify='space-between'
+                                            _hover={{
+                                                background: 'gray.400'
+                                            }}
+                                        >
 
 
-                                        <VStack align='flex-start' spacing={0}>
+                                            <VStack align='flex-start' spacing={0}>
 
-                                            <Flex align='center' gridGap='5px'>
-                                                <Icon as={AiOutlinePlayCircle} />
-                                                <Text color='white.900' fontWeight='bold' fontSize='lg' >
-                                                    {lesson.title}
+                                                <Flex align='center' gridGap='5px'>
+                                                    <Icon as={AiOutlinePlayCircle} />
+                                                    <Text color='white.900' fontWeight='bold' fontSize='lg' >
+                                                        {lesson.title}
+                                                    </Text>
+                                                </Flex>
+
+                                                <Text
+                                                    pl='22px'
+                                                    color='white.200'
+                                                    fontWeight='bold'
+                                                    fontSize='sm'
+                                                    textAlign='left'>
+                                                    {lesson.duration}
                                                 </Text>
-                                            </Flex>
 
-                                            <Text
-                                                pl='22px'
-                                                color='white.200'
-                                                fontWeight='bold'
-                                                fontSize='sm'
-                                                textAlign='left'>
-                                                {lesson.duration}
-                                            </Text>
-
-                                        </VStack>
-                                        {
-                                            lesson.completed ? <Icon as={AiFillCheckCircle} w='22px' h='22px' />
-                                                : <Box bg='gray.250' w='22px' h='22px' borderRadius='50%' />
-                                        }
+                                            </VStack>
+                                            {
+                                                lesson.completed ? <Icon as={AiFillCheckCircle} w='22px' h='22px' />
+                                                    : <Box bg='gray.250' w='22px' h='22px' borderRadius='50%' />
+                                            }
 
 
 
 
-                                    </Flex>
-                                    <Divider />
+                                        </Flex>
+                                        <Divider />
                                     </a>
-                                   
+
                                 </Link>
-                                
+
                             ))
                         )
                     }

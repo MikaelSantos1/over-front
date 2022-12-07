@@ -14,6 +14,8 @@ import { IconType } from "react-icons";
 
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { HeartIcon } from "./heartIcon";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { MdArrowRight } from "react-icons/md";
 interface CoursesCarouselProps {
     carouselTitle: string;
     icon: IconType
@@ -160,7 +162,38 @@ export function CoursesCarousel({ carouselTitle, icon, carouselDescription,bg,  
                             >{carouselDescription}</Text>
                         </Flex>
                     }
-
+                    <Flex
+                    pl='6' 
+                    justify='center'
+                    align='center'
+                    position='relative'
+                    transition='all .4s ease-in'
+                    _hover={{
+                        '.showAll':{
+                        opacity:1
+                        },
+                        '.iconShow':{
+                           left:'calc(100% + 5px) '
+                            }
+                    }}      
+                    >
+                        <Icon as={MdArrowRight}
+                        width='30px'
+                        h='30px'
+                        color='white.900' 
+                        left={0}
+                        className='iconShow'
+                        position='absolute'
+                        transition='all .4s ease-in'
+                        />
+                        <Text
+                        fontWeight='bold'
+                        color='white.900'
+                         transition='all .4s ease-in'
+                        className="showAll"
+                        opacity={0}
+                        >Ver tudo</Text>
+                    </Flex>
                 </Flex>
                 {
                     <Flex className="paginationTop1" flexWrap='wrap' w='20%' justify='center' align='center' />
