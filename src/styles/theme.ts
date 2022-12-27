@@ -1,5 +1,10 @@
-import {extendTheme, Theme} from '@chakra-ui/react'
-
+import {extendTheme, layout, Theme} from '@chakra-ui/react'
+import { BiPlay } from 'react-icons/bi'
+import Playing from '../assets/playing.svg'
+import Play from '../assets/icon-play.svg'
+import Back from '../assets/back.svg'
+import Forward from '../assets/forward.svg'
+import Next from '../assets/next.svg'
 export const theme= extendTheme({
     
      breakpoints: {
@@ -55,9 +60,132 @@ export const theme= extendTheme({
                 position: 'static !important',
                 height: 'auto !important'
                 },
-            
+                ".vjs-control-bar":{
+                    alignItems:' center! important',
+                    background:' linear-gradient(0deg,#000 47.02%,transparent)',
+                    height: '111px !important',
+                    padding:'0 15px'
+                
+                },
+                ".vjs-progress-control":{
+                    height: 'fit-content !important',
+                    top: '-8px !important',
+                    position:'absolute !important',
+                    width:'100% !important',
+                    left:0,
+                    flex:'auto',
+                    display:'flex',
+                  
+                },
+                ".vjs-progress-holder":{
+                    height:'8px !important',
+                    borderRadius: '12px',
+                    backgroundColor: '#424449 !important'
+                },
+               '.vjs-play-control':{
+              
+               },
+             
+               ".vjs-play-control.vjs-control.vjs-button.vjs-paused":{
+                backgroundImage:`url(${Play.src})` ,
+                marginRight:'3em !important',
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center',
+                opacity: .7
+               },
+               ".vjs-play-control.vjs-control.vjs-button.vjs-paused:hover":{
+               
+                opacity: 1
+               },
+               '.vjs-play-control.vjs-playing .vjs-icon-placeholder:before':{
+              display:'none'
+               },
+               '.video-js .vjs-play-control .vjs-icon-placeholder:before':{
+                display:'none'
+                 },
+               '.vjs-icon-pause:before':{
+                display:'none !important'
+               },
+               ".vjs-play-control.vjs-control.vjs-button.vjs-playing":{
+                backgroundImage:`url(${Playing.src})` ,
+                marginRight:'3em !important',
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center',
+                opacity: .7
+               },
+               ".vjs-back":{
+                marginRight:'3em !important',
+                backgroundImage:`url(${Back.src})` ,
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center',
+                opacity: .7
+               },
+               ".vjs-forward":{
+                marginRight:'3em !important',
+                backgroundImage:`url(${Forward.src})` ,
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center',
+                opacity: .7
+               },
+               ".vjs-next":{
+                backgroundImage:`url(${Next.src})` ,
+                marginRight:'3em !important',
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center',
+                opacity: .7
+               },
+               '.vjs-volume-control.vjs-control.vjs-volume-horizontal':{
+                width: '5em',
+                height: '3em',
+                marginRight: '0',
+               },
+               '.vjs-volume-control':{
+                visibility: 'visible !important',
+             opacity: '1 !important',
+                position: 'relative !important'
+               },
+               '.vjs-volume-bar.vjs-slider-horizontal': {
+                display:'block',
+                width: '5em',
+                 height: '0.3em',
             },
-            
+            '.vjs-volume-panel':{
+                width:'10em !important',
+                display:'flex',
+                justifyContent:'center',
+                alignItems:'center'
+            },
+            '.vjs-button > .vjs-icon-placeholder:before':{
+                fontSize:'3em !important',
+                position:'static'
+            },
+            '.spacing':{
+                flex:'1 !important'
+            }
+            ,
+            '.vjs-playback-rate-value':{
+                display:'flex',
+                justifyContent:'center',
+                alignItems:'center'
+            },
+            '.vjs-big-play-button':{
+                backgroundImage:`url(${Play.src})` ,
+                marginRight:'3em !important',
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center',
+                backgroundColor:'transparent !important',
+                borderRadius:'50% !important',
+                width:'86px !important',
+                height:'86px !important'
+               
+            },
+            '.video-js .vjs-big-play-button .vjs-icon-placeholder:before':{
+                display:'none'
+            },
+            '.video-js .vjs-play-progress:before':{
+                top:'0'
+            }
+        }
               
     
         }

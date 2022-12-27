@@ -5,6 +5,7 @@ import { CollapseLesson } from "../../components/CollapseLesson";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { LessonTabs } from "../../components/LessonTabs";
+import PlayerReact from "../../components/ReactPlayer";
 import { StarRating } from "../../components/StarRating";
 import VideoJS from "../../components/Video";
 
@@ -55,13 +56,34 @@ export default function Watch() {
     autoplay: false,
     controls: true,
     responsive: true,
+
     fluid: true,
+
     sources: [{
       src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      type: 'video/mp4'
-    }],
+      type: 'video/mp4',
 
+    },
 
+    ],
+    controlBar: {
+      children: [
+        "playToggle",
+        "volumePanel",
+
+        "progressControl",
+
+        "fullscreenToggle",
+        'PlaybackRateMenuButton',
+        'PictureInPictureToggle',
+
+      ]
+
+    },
+    html5:{
+      vhs: { overrideNative: true }
+    },
+    playbackRates: [0.75, 1, 1.25],
   };
 
   const handlePlayerReady = (player) => {
@@ -77,7 +99,7 @@ export default function Watch() {
 
     <Box w='100%' h='100%'>
       <Header />
-      <Flex flexWrap={!isWideVersion?'wrap' :'nowrap'}pt='100px' gridGap='25px' mb='220px'>
+      <Flex flexWrap={!isWideVersion ? 'wrap' : 'nowrap'} pt='100px' gridGap='25px' mb='220px'>
 
         <Box
           w={!isOpen && isWideVersion ? '70%' : '100%'}
@@ -128,7 +150,7 @@ export default function Watch() {
 
 
         </Box>
-        <Box w={isWideVersion?'30%':'100%'} h='100%'
+        <Box w={isWideVersion ? '30%' : '100%'} h='100%'
           display={isOpen ? 'none' : 'block'}
           transition='all .3s ease-out'
           transform={isOpen ? 'translateX(100%)' : 'translateX(0)'}
@@ -141,7 +163,7 @@ export default function Watch() {
               isOpen={isOpen} onToggle={onToggle} />
 
           }
-          <Flex mt={['8','10','14']} gridGap='35px' flexWrap={isWideVersion ? 'nowrap' : 'wrap'}  px={!isWideVersion?'5':0}>
+          <Flex mt={['8', '10', '14']} gridGap='35px' flexWrap={isWideVersion ? 'nowrap' : 'wrap'} px={!isWideVersion ? '5' : 0}>
 
             <Flex
               h='100%'
@@ -161,10 +183,10 @@ export default function Watch() {
             </Flex>
           </Flex>
         </Box>
-        
+
       </Flex>
 
-      <Footer/>
+      <Footer />
     </Box>
   )
 }
